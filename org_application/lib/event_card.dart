@@ -1,13 +1,12 @@
 import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/scheduler.dart';
-import 'event_open_card.dart';
+import 'event_open_card_2.dart';
 import 'color.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'event_model.dart';
-import 'package:intl/intl.dart'; //for date format
+import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
 
 LightThemeColors colors = LightThemeColors();

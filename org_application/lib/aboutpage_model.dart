@@ -8,6 +8,6 @@ class AboutPage {
   });
 
   factory AboutPage.fromJson(Map<String, dynamic> json) {
-    return AboutPage(about: json['title'] as String);
+    return AboutPage(about: json['aboutText'] as String);
   }
 }

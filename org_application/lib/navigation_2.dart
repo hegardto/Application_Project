@@ -30,7 +30,7 @@ class _NavigationState extends State<Navigation> with TickerProviderStateMixin {
   final HttpService httpService = HttpService();
   String memberId;
   final GlobalKey<TicketViewState> ticketViewKey =
-      new GlobalKey<TicketViewState>();
+  new GlobalKey<TicketViewState>();
   _NavigationState({@required this.memberId});
   TabController tabController;
 
@@ -84,45 +84,45 @@ class _NavigationState extends State<Navigation> with TickerProviderStateMixin {
               Column(children: <Widget>[
                 Expanded(
                     child: RefreshIndicator(
-                  color: logoColor,
-                  backgroundColor: backgroundColor,
-                  child: ListView.builder(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      itemCount: events.length + 1,
-                      itemBuilder: (context, index) {
-                        if (index == 0) {
-                          return Padding(
-                            padding: EdgeInsets.only(
-                                top: MediaQuery.of(context).size.height * 0.02,
-                                bottom:
+                      color: logoColor,
+                      backgroundColor: backgroundColor,
+                      child: ListView.builder(
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          itemCount: events.length + 1,
+                          itemBuilder: (context, index) {
+                            if (index == 0) {
+                              return Padding(
+                                padding: EdgeInsets.only(
+                                    top: MediaQuery.of(context).size.height * 0.02,
+                                    bottom:
                                     MediaQuery.of(context).size.height * 0.02),
-                            child: Text(
-                              "Discover events",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  fontFamily: 'Ginto',
-                                  color: textColor),
-                            ),
-                          );
-                        }
-                        index -= 1;
+                                child: Text(
+                                  "Discover events",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontFamily: 'Ginto',
+                                      color: textColor),
+                                ),
+                              );
+                            }
+                            index -= 1;
 
-                        return EventCard(
-                          memberId: memberId,
-                          event: events[index],
-                          key: UniqueKey(),
-                        );
-                      }),
-                  onRefresh: () async {
-                    events = await httpService.getEvents();
-                    events.sort((a, b) => a.compareTo(b));
-                    if (this.mounted) {
-                      setState(() {});
-                    }
-                    return null;
-                  },
-                ))
+                            return EventCard(
+                              memberId: memberId,
+                              event: events[index],
+                              key: UniqueKey(),
+                            );
+                          }),
+                      onRefresh: () async {
+                        events = await httpService.getEvents();
+                        events.sort((a, b) => a.compareTo(b));
+                        if (this.mounted) {
+                          setState(() {});
+                        }
+                        return null;
+                      },
+                    ))
               ]),
               MyEventsView(
                 key: ticketViewKey,
